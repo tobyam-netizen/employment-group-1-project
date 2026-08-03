@@ -7,12 +7,117 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-
+install.packages('tidyverse')
 ```
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(openxlsx)
+```
+
 
 ```{r}
 ```
 
 
 ```{r, echo=FALSE}
+data0 <- read.xlsx("national_M2020_dl.xlsx", sheet = 1)
+data1 <- read.xlsx("national_M2021_dl.xlsx", sheet = 1)
+data2 <- read.xlsx("national_M2022_dl.xlsx", sheet = 1)
+data3 <- read.xlsx("national_M2023_dl.xlsx", sheet = 1)
+data4 <- read.xlsx("national_M2024_dl.xlsx", sheet = 1)
+data5 <- read.xlsx("national_M2025_dl.xlsx", sheet = 1)
+
+data0 <- data0 %>% 
+  mutate('year' = 2020) %>% 
+  mutate(TOT_EMP = as.numeric(TOT_EMP)) %>% 
+  mutate(EMP_PRSE = as.numeric(EMP_PRSE)) %>% 
+  mutate(MEAN_PRSE = as.numeric(MEAN_PRSE))
+data1 <- data1 %>%
+  mutate('year' = 2021) %>%
+  select(-PCT_RPT) %>% 
+  mutate(TOT_EMP = as.numeric(TOT_EMP)) %>% 
+  mutate(EMP_PRSE = as.numeric(EMP_PRSE)) %>% 
+  mutate(MEAN_PRSE = as.numeric(MEAN_PRSE))
+data2 <- data2 %>% 
+  mutate('year' = 2022) %>%
+  select(-PCT_RPT) %>% 
+  mutate(TOT_EMP = as.numeric(TOT_EMP)) %>% 
+  mutate(EMP_PRSE = as.numeric(EMP_PRSE)) %>% 
+  mutate(MEAN_PRSE = as.numeric(MEAN_PRSE))
+data3 <- data3 %>%
+  mutate('year' = 2023) %>%
+  select(-PCT_RPT) %>% 
+  mutate(TOT_EMP = as.numeric(TOT_EMP)) %>% 
+  mutate(EMP_PRSE = as.numeric(EMP_PRSE)) %>% 
+  mutate(MEAN_PRSE = as.numeric(MEAN_PRSE))
+data4 <- data4 %>%
+  mutate('year' = 2024) %>% 
+  select(-PCT_RPT) %>% 
+  mutate(TOT_EMP = as.numeric(TOT_EMP)) %>% 
+  mutate(EMP_PRSE = as.numeric(EMP_PRSE)) %>% 
+  mutate(MEAN_PRSE = as.numeric(MEAN_PRSE))
+data5 <- data5 %>% 
+  mutate('year' = 2025) %>% 
+  select(-PCT_RPT) %>% 
+  mutate(TOT_EMP = as.numeric(TOT_EMP)) %>% 
+  mutate(EMP_PRSE = as.numeric(EMP_PRSE)) %>% 
+  mutate(MEAN_PRSE = as.numeric(MEAN_PRSE))
 ```
+
+
+```{r}
+df <- bind_rows(list(data0, data1, data2, data3, data4, data5), .id = "id")
+df
+```
+```{r}
+max(df$year)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
