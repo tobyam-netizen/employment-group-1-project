@@ -1,9 +1,12 @@
 ---
 title: "main"
-author: "Toby Martiny"
+author: "Toby, Brian, Hector"
 date: "2026-08-03"
 output: html_document
 ---
+
+### Career Employement and Income Analysis For 2020 to 2025
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -14,10 +17,6 @@ install.packages('tidyverse')
 library(tidyverse)
 library(dplyr)
 library(openxlsx)
-```
-
-
-```{r}
 ```
 
 
