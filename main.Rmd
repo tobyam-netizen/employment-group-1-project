@@ -77,6 +77,19 @@ max(df$year)
 
 
 
+```{r}
+# Test Plot - Mean Total Employment by Year
+df %>% 
+  select(year, TOT_EMP) %>% 
+  group_by(year) %>%
+  summarize(mean(TOT_EMP, na.rm = TRUE)) %>%
+  plot()
+
+```
+
+
+
+
 
 
 
